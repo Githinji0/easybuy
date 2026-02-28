@@ -45,6 +45,15 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --color-primary: #f38375;
+  --color-secondary: #e26d5c;
+  --color-accent: #eb5e28;
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #212529;
+  --color-text-secondary: #343a40;
+  --color-border: #6b9080;
+
 }
 
 :root {
@@ -115,6 +124,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+
 
 @layer base {
   * {
