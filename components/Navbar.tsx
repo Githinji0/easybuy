@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <nav className="bg-surface shadow-sm border-b-2 shadow-text-primary text-text-primary flex h-20 justify-between w-full">
+    <nav className="bg-surface text-text-primary flex h-20 justify-between w-full">
       <div className="container mx-auto flex items-center justify-between">
         <div className=" text-accent tracking-wide font-bold hover:text-text-primary text-2xl">
           <Link href="/">EazyBuy</Link>

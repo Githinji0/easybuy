@@ -12,8 +12,8 @@ export default async function Home() {
   });
   console.log(products);
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <section className="flex w-full flex-col items-center gap-12 px-4 py-16 lg:flex-row">
+    <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <section className="flex w-full flex-col items-center gap-12 px-4 lg:flex-row  h-fit">
         <div className=" lg:grid-cols-2 grid items-center gap-8 w-full p-10">
           <div className=" lg:col-span-1">
             <div className=" lg:w-3/4 space-y-6">
@@ -31,12 +31,12 @@ export default async function Home() {
           <Image
             src={products.data[0].images[0]}
             alt="Sneakers"
-            width={740}
-            height={740}></Image>
+            width={500}
+            height={500}></Image>
         </div>
       </section>
-      <section>
-        <Carousel products={[]} />
+      <section className="w-full px-4 py-4">
+        <Carousel products={products.data} />
       </section>
     </div>
   );
