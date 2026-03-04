@@ -20,4 +20,15 @@ export interface CartStore {
 }
 
 
-export const useCartStore = create<CartStore>()
+export const useCartStore = create<CartStore>()((persist((set) => ({
+    items: [],
+    addItem: (item: CartItem) => set((state : CartStore) => ({
+        items: [...state.items, item]
+    })),
+    removeItem: (id: string) => set((state: CartStore) => ({
+        items: state.items.filter(item => item.id !== id)
+    }))
+})), {
+    name: "cart-storage",
+    getStorage: () => localStorage
+}));
