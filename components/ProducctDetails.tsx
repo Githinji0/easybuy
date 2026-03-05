@@ -1,12 +1,27 @@
+"use client";
 import Image from "next/image";
 import Stripe from "stripe";
 import { Button } from "./ui/button";
+import { useCartStore } from "@/store/cart-store";
 interface ProductDetailProps {
   product: Stripe.Product;
 }
 
 export default function ProductDetail({ product }: ProductDetailProps) {
+  const { items, addItem, removeItem } = useCartStore();
+  const cartItem = items.find((item) => item.id === product.id);
+  const quantity = cartItem ? cartItem.quantity : 0;
   const price = product.default_price as Stripe.Price;
+
+  const onAddItem = () => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: price.unit_amount as number,
+      image: product.images ? product.images[0] : null,
+      quantity: 1,
+    });
+  };
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
       {product.images && product.images.length > 0 && (
@@ -31,8 +46,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <Button variant="outline" className="rounded-full">
               -
             </Button>
-            <span className="px-4">0</span>
-            <Button variant="outline" className="rounded-full">
+            <span className="px-4">{quantity}</span>
+            <Button variant="outline" className="rounded-full" onClick={onAddItem}>
               +
             </Button>
           </div>
