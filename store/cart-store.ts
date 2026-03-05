@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { create } from "zustand";
-
 import { persist } from "zustand/middleware";
 
 export interface CartItem {
@@ -19,22 +18,33 @@ export interface CartStore {
 }
 
 export const useCartStore = create<CartStore>()(
-  persist((set) => ({
-    items: [],
-    addItem: (item) =>
-      set((state) => {
-        const exisistingItem = state.items.find((i) => i.id === item.id);
-        if (exisistingItem) {
-          return {
-            items: state.items.map((i) =>
-              i.id === item.id
-                ? { ...i, quantity: i.quantity + item.quantity }
-                : i,
-            ),
-          };
-        }
+  persist(
+    (set, get) => ({
+      items: [],
+      addItem: (item) =>
+        set((state) => {
+          const existingItem = state.items.find((i) => i.id === item.id);
 
-        return { items: [...state.items, item] };
-      }),
-  })),
+          if (existingItem) {
+            return {
+              items: state.items.map((i) =>
+                i.id === item.id
+                  ? { ...i, quantity: i.quantity + item.quantity }
+                  : i
+              ),
+            };
+          }
+
+          return { items: [...state.items, item] };
+        }),
+
+      removeItem: (id) =>
+        set((state) => ({ items: state.items.filter((i) => i.id !== id) })),
+
+      clearCart: () => set({ items: [] }),
+    }),
+    {
+      name: "cart-store", // required
+    }
+  )
 );
