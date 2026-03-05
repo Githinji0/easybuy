@@ -16,9 +16,11 @@ export default async function ProductPage({
     expand: ["default_price"],
   });
 
+  const safeProduct = JSON.parse(JSON.stringify(product));
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex items-center justify-center">
-      <ProductDetail product={product} />
+      <ProductDetail product={safeProduct} />
     </div>
   );
 }

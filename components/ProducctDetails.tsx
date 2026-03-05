@@ -43,7 +43,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         )}
         <div className="mt-6">
           <div className="flex items-center gap-2">
-            <Button variant="outline" className="rounded-full">
+            <Button variant="outline" className="rounded-full" onClick={() => removeItem(product.id)} >
               -
             </Button>
             <span className="px-4">{quantity}</span>
