@@ -65,6 +65,7 @@ export default function CheckoutPage() {
         </CardContent>
       </Card>
       <form action={checkoutAction}>
+        <input type="hidden" name="items" value = {JSON.stringify(items)} />
         <Button className="mt-6 w-full mb-10" type="submit" variant={"default"}>
           Proceed to Payment
         </Button>
