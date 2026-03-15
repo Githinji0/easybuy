@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# 🛒 EasyBuy — E-commerce Web App
+
+EasyBuy is a modern full-stack e-commerce application built with **Next.js**, **Zustand**, and **Stripe**. It provides a fast, responsive shopping experience with secure online payments.
+
+---
+
+## 🚀 Tech Stack
+
+### Frontend & Framework
+
+* ⚡ Next.js (React Framework)
+* ⚛️ React
+* 🎨 Tailwind CSS / CSS Modules
+
+### State Management
+
+* 🧠 Zustand (Lightweight global state)
+
+### Payments
+
+* 💳 Stripe (Secure checkout)
+
+### Backend
+
+* 🔌 Next.js API Routes / Server Actions
+
+---
+
+## ✨ Features
+
+* 🛍️ Product Listing & Details Page
+* 🔎 Search & Filter Products
+* 🧺 Shopping Cart (Global state with Zustand)
+* ❤️ Add / Remove Items from Cart
+* 💰 Secure Stripe Checkout
+* 📦 Order Summary
+* 📱 Fully Responsive Design
+* ⚡ Fast Performance with Next.js
+* 🔐 Server-side payment handling
+
+---
+
+## 📂 Project Structure
+
+```
+easybuy/
+│
+├── app/ or pages/      # Next.js routes
+├── components/         # Reusable UI components
+├── store/              # Zustand store
+├── lib/                # Utilities & helpers
+├── public/             # Static assets
+├── styles/             # Global styles
+├── pages/api/          # API routes (Stripe)
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/easybuy.git
+cd easybuy
+```
+
+---
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn install
+```
+
+---
+
+### 3️⃣ Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_publishable_key
+STRIPE_SECRET_KEY=your_secret_key
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
+Get your keys from the Stripe Dashboard.
+
+---
+
+### 4️⃣ Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App will run at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 💳 Stripe Checkout Flow
 
-To learn more about Next.js, take a look at the following resources:
+1. User adds items to cart
+2. Cart state managed by Zustand
+3. Checkout request sent to API route
+4. Stripe session created on server
+5. User redirected to Stripe secure payment page
+6. Success / Cancel redirect handled
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+```bash
+npm test
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Push and open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Githinji William**
+
+* 💻 Full-Stack Developer
+* ⚡ Passionate about modern web apps
+
+---
+
